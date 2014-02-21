@@ -204,7 +204,8 @@ void RegisterNodelet::convert(const sensor_msgs::ImageConstPtr& depth_msg,
   registered_msg->step = registered_msg->width * sizeof(T);
   registered_msg->data.resize( registered_msg->height * registered_msg->step );
   // data is already zero-filled in the uint16 case, but for floats we want to initialize everything to NaN.
-  DepthTraits<T>::initializeBuffer(registered_msg->data);
+  std::vector<uint8_t> data_copy = registered_msg->data;
+  DepthTraits<T>::initializeBuffer(data_copy);
 
   // Extract all the parameters we need
   double inv_depth_fx = 1.0 / depth_model_.fx();

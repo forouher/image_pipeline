@@ -86,7 +86,7 @@ void DisparityNodelet::onInit()
 {
   ros::NodeHandle nh = getNodeHandle();
   ros::NodeHandle local_nh = getPrivateNodeHandle();
-  const std::vector<std::string>& argv = getMyArgv();
+  const ros::V_string& argv = getMyArgv();
 
   // Internal option, should be used only by image_view nodes
   bool shutdown_on_close = std::find(argv.begin(), argv.end(),

@@ -36,6 +36,7 @@
 
 #include <algorithm>
 #include <limits>
+#include <ros/boost_container.h>
 
 namespace depth_image_proc {
 

@@ -32,6 +32,8 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *********************************************************************/
 #include <ros/ros.h>
+#include <ros/forwards.h>
+
 #include <nodelet/nodelet.h>
 #include <image_transport/image_transport.h>
 
@@ -106,7 +108,7 @@ void ImageNodelet::onInit()
   ros::NodeHandle local_nh = getPrivateNodeHandle();
 
   // Command line argument parsing
-  const std::vector<std::string>& argv = getMyArgv();
+  const ros::V_string& argv = getMyArgv();
   // First positional argument is the transport type
   std::string transport = "raw";
   for (int i = 0; i < (int)argv.size(); ++i)
