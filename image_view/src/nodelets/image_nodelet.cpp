@@ -83,7 +83,7 @@ void ImageNodelet::onInit()
   ros::NodeHandle local_nh = getPrivateNodeHandle();
 
   // Command line argument parsing
-  const std::vector<std::string>& argv = getMyArgv();
+  const ros::messages::types::vector<ros::messages::types::string>& argv = getMyArgv();
   // First positional argument is the transport type
   std::string transport = "raw";
   for (int i = 0; i < (int)argv.size(); ++i)
